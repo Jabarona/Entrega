@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% load static %}<!--trae el modelo base de base.html-->
+{% block title %}Inicio{% endblock %} <!--es para colocar el titulo a la página-->
+
+{% block content %}
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+        <img src="{% static 'img/imagen1.jpg' %}" class="d-block w-100" alt="...">
+    </div>    
+    <div class="carousel-item" data-bs-interval="3000">
+        <img src="{% static 'img/fondo2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="3000">
+        <img src="{% static 'img/imagen3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--quienes somos-->
+
+<section class="w-50 mx-auto text-center  pt-5" id="quienesSomos">
+    <h1 class="p-3 fs-2 border-top border-3 text-light"> QUIENES  <span class="text-info"> SOMOS!</span></h1>
+    <p class="p-3 fs-4 text-light" >
+        <span class="text-info">Scrapy Coco</span>, somos un equipo de barberos apasionados 
+        que se dedican a brindar cortes de cabello impecables y servicios 
+        de barbería de primera clase. Con un enfoque en la atención al detalle 
+        y las últimas tendencias, nos esforzamos por crear una experiencia 
+        acogedora y personalizada para nuestros clientes. Ven y déjanos realzar 
+        tu estilo con nuestra experiencia y habilidades excepcionales 
+        en el arte de la barbería.</p>
+    <p class="p-3 fs-4 text-light" >    
+        En <span class="text-info">Scrapy Coco</span>, valoramos la calidad del servicio y la 
+        satisfacción del cliente. Nuestros expertos barberos están dedicados a 
+        brindar cortes de cabello modernos y a la moda, combinados con un ambiente 
+        amigable y acogedor. Nuestro objetivo es que salgas de nuestra barbería 
+        sintiéndote y luciendo genial. ¡Te invitamos a visitarnos y experimentar 
+        lo mejor en cuidado del cabello y arreglo personal!</p>
+</section>
+
+
+
+
+
+{% endblock %}

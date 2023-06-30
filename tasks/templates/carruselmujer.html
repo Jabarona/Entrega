@@ -1,0 +1,42 @@
+{% extends 'base.html' %}  {% load static %}<!--trae el modelo base de base.html-->
+{% block title %}Cortes Mujeres{% endblock %} <!--es para colocar el titulo a la página-->
+
+{% block content %}
+
+    <section id="galeria" class="container">
+        <div class="text-center pt-5">
+        <h1 class="text-light"> MUJERES</h1>
+        <p class="text-light">Acá encontraras fotografias de nuestros servicios.</p>
+
+        </div>
+        <div class="row m-5">
+            <div class="card-group">
+                <div class="card">
+                    <img src="{% static 'img/mujer1.jpg' %}" class="card-img-top" alt="..." width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/mujer2.jpeg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/mujer3.jpg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="{% static 'img/mujer4.jpg' %}" class="card-img-top" alt="..." width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/mujer5.jpg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/mujer6.jpg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    
+    
+    {% endblock%}

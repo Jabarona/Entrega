@@ -1,0 +1,85 @@
+{% block title %}Carrito{% endblock %}
+
+{% block content %}{% load static %}
+{% load humanize %}
+
+<div class="alert alert-primary table-responsive" role="alert">
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="row" colspan="4" class="text-center" style="display: contents;">CARRITO</th>
+            </tr>
+            <tr>
+                <th scope="col">NOMBRE</th> 
+                <th scope="col">PRECIO</th>
+                <th scope="col">AGREGAR</th>
+                <th scope="col">CTDAD</th>
+            </tr>
+        </thead>
+        <body>
+        {% if request.session.carrito.items %}
+        {% for key, value in request.session.carrito.items %}
+        <tr>
+            <td>{{value.nombre}}</td>
+            <td>${{value.acumulado}}</td>
+            <td>
+                <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+                <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+            </td>
+            <td>{{value.cantidad}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4"> 
+                    <div class="alert alert-danger text-center">Sin productos</div>
+                </td> 
+            </tr>
+        {% endif %}
+        <tr>
+            <th scope="row">Total:</th>
+            <td colspan="2">${{total_carrito |intcomma }}</td>
+        </tr>
+        </body>
+    </table>
+<hr>
+<div>
+    <div class="row text-center">
+        <div class="col-6"><a href="{% url 'CLS'%}" class="btn btn-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+              </svg> Limpiar </a></div>
+        <div class="col-6"><a href="/compra" id="btnpagar" class="btn btn-success" onclick="alert('PAGO EXITOSO');">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/> 
+            </svg> Pagar </a>
+       
+    
+        </div>
+        
+    </div>
+</div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

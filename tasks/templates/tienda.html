@@ -1,0 +1,42 @@
+{% extends "base.html" %}{% load static %} {% load humanize %}
+
+{% block title %}Productos{% endblock title %}
+{% block content %}
+
+<div class="container" style="margin: auto;">
+    <div class="row">
+        <div class="col-12 align-self-center"><h5 class="display-1" style="color: aliceblue; font-size: 4vh;">
+            <br> Los Mejores <span class="text-info">Productos</span></h5> <br></div> 
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="row" style="padding: 10px 0; ">
+                <div class="col-12" style="background-color: rgb(34, 32, 32); overflow: auto; border-radius: 1.5vh;"> 
+                    <div class="row row-cols-1 row-cols-md-3 g-3 ">
+                        {% for producto in productos %}
+                        <div class="col-6">
+                            <div class="card bg-dark text-white" style="height: 18rem; width: 15rem; margin: 5px 5px; ">
+                                <div class="card-body" >
+                                    <img src="{{ producto.imagen.url }}" class="card-img-top"  height="150vh" style />
+                                    <h5 class="card-title">{{producto.nombre}}</h5>
+                                    <p class="card-text">${{producto.precio|intcomma }}</p>
+                                    <a href="{% url 'Add' producto.id %}" class="btn btn-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg> Agregar al Carrito</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="col-4">
+            {% include "carrito.html" %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<main class="container">
+    <div class="row m-5">
+        <div class="col-md-6 offset-md-4 mt-5" >
+        <form  method="POST" class="card card-body">
+            <h1 class="text-center">REGISTRAR</h1>
+            <h3 class="text-danger text-center">{{error}}</h3>
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="first_name">Nombre:</label>
+                <input type="text" name="first_name" id="first_name" 
+                class="form-control" placeholder="Escriba su nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="last_name">Apellido:</label>
+                <input type="text" name="last_name" id="last_name" 
+                class="form-control" placeholder="Escriba su apellido" required>
+            </div>
+            <div class="mb-3">
+                <label for="email">Correo:</label>
+                <input type="email" name="email" id="email" 
+                class="form-control" placeholder="Escriba su correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" 
+                class="form-control" placeholder="Escriba su usuario" required>
+            </div>
+            <div class="mb-3">
+                <label for="password1">Contraseña:</label>
+                <input type="password" name="password1" id="password1" 
+                class="form-control" placeholder="Escriba su contraseña" required>
+            </div>
+            <div class="mb-3">
+                <label for="password2">Confirmar Contraseña:</label>
+                <input type="password" name="password2" id="password2" 
+                class="form-control" placeholder="Confirma tu contraseña" required>
+            </div>
+            <button class="btn btn-primary">
+                Registrar
+            </button>
+            
+        
+        </form>
+    </div>
+    
+    </div>
+
+
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% load static %} {% load humanize %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} | Scrappy Coco</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <!---ICONOS-->
+        <script src="https://kit.fontawesome.com/c656267fe1.js" crossorigin="anonymous"></script>
+        <!---LOGO PAGINA-->
+        <link rel="shortcut icon" href="{% static 'img/logo-footer.png' %}" width="90" height="80" />
+        <link rel="stylesheet" href="{%  static 'css/bootstrap/bootstrap.min.css' %}" />
+        <!--CSS FOOTER-->
+        <link type='text/css'  href='{% static "css/styles.css" %}' rel='stylesheet'/>
+        
+    </head>
+
+    <body style="background-color: #2c313c;">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+            
+            <a class="navbar-brand" href="/home" > <img src="{%  static 'img/logo-footer.png' %}" alt="Logo" width="120px" ></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item  ">
+                        <a href="/home" class="nav-link {% if request.path == '/home/' %}active {% endif %}">INICIO</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/agendar" class="nav-link {% if request.path == '/agendar/' %} active {% endif %}">AGENDAR HORA</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item ">
+                        <a href="/logout" class="nav-link {% if request.path == '/logout/' %} active {% endif %}">SALIR</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item ">
+                        <a href="/signup" class="nav-link {% if request.path == '/signup/' %} active {% endif %}">REGISTRAR</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/signin" class="nav-link {% if request.path == '/signin/' %} active {% endif %}">LOGIN</a>
+                    </li>
+                    {% endif %}
+                    
+                    <!--<li class="nav-item">
+                        <a class="nav-link" href="/tienda">PRODUCTOS</a>
+                    </li>-->
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if request.path == '/hombres/' %} active {% elif request.path == '/mujeres/' %} active {% elif request.path == '/ninos/' %} active {% elif request.path == '/tienda/' %} active {% endif %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        NUESTROS SERVICIOS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/hombres">Cortes Hombres</a></li>
+                        <li><a class="dropdown-item" href="/mujeres">Cortes Mujeres</a></li>
+                        <li><a class="dropdown-item" href="/ninos">Cortes Niños</a></li>
+                        <li><a class="dropdown-item" href="/tienda">Productos</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                    
+                
+                
+            </ul>
+                
+            </div>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+
+        <section class="" id="contacto">
+            <footer class="pie-pagina">
+                <div class="grupo-1">
+                    <div class="box">
+                        <figure>
+                            <a href="#">
+                                <img src="{%  static 'img/logo-footer.png' %}" alt="logo barberia">
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="box">
+                        <h1>CONTACTANOS</h1>
+                        <p></p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11196.49261435402!2d-70.66355930180579!3d-33.45615347432367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c50ece08b569%3A0x2fb0a2e7986d894c!2sParque%20Almagro!5e0!3m2!1ses-419!2scl!4v1680885323173!5m2!1ses-419!2scl" 
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        
+                        
+                    </div>
+                    <div class="box">
+                        <h2>SIGUENOS EN NUESTRAS REDES</h2>
+                        <div class="red-social">
+                            <a href="https://www.instagram.com/scrapy.cc/" target="_blank"
+                            class=" fa fa-instagram"></a>
+                            <a href="https://web.facebook.com/profile.php?id=100091445451404" target="_blank"
+                            class=" fa fa-facebook"></a>
+                            <a href="https://wa.me/56931085509?text=Hola quiero agendar un turno." target="_blank" 
+                            class=" fa fa-whatsapp"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grupo-2">
+                    <small>&copy;2023 <b>APRENDIENO DJANGO</b> </small>
+                </div>
+            </footer>
+            </section>
+
+        <script src="{% static 'js/boostrap/bootstrap.bundle.min.js' %}" ></script>
+    </body>
+</html>

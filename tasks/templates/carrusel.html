@@ -1,0 +1,44 @@
+{% extends 'base.html' %}  {% load static %}<!--trae el modelo base de base.html-->
+{% block title %}Cortes Varón{% endblock %} <!--es para colocar el titulo a la página-->
+
+{% block content %}
+    <div id="custom-navbar"></div>
+
+    <section id="galeria" class="container ">
+        <div class="text-center pt-5">
+        <h1 class="text-light"> HOMBRES </h1>
+        <p class="text-light">Acá encontraras fotografias de nuestros servicios.</p>
+
+        </div>
+        <div class="row m-5">
+            <div class="card-group">
+                <div class="card">
+                    <img src="{% static 'img/barberia.jpg' %}" class="card-img-top" alt="..." width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/facial.jpg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/img1.webp' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="{% static 'img/barbanew.jpg' %}" class="card-img-top" alt="..." width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/lavadomen.jpeg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/tinturado_men.jpg' %}" class="card-img-top" alt="..."  width="50px" height="300px">                  
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+        
+{% endblock%}
